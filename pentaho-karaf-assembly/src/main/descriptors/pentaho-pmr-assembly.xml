@@ -14,17 +14,14 @@
   ~
   ~ Copyright 2014 - 2017 Hitachi Vantara. All rights reserved.
   -->
-
-<assembly>
-
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
   <id>pmr</id>
-
   <formats>
     <format>zip</format>
   </formats>
-
+  <baseDirectory>karaf</baseDirectory>
   <fileSets>
-
     <!-- Expanded Karaf Standard Distribution -->
     <fileSet>
       <directory>target/dependencies/apache-karaf-${karaf.version}</directory>
@@ -48,7 +45,6 @@
         <exclude>karaf-manual*.pdf</exclude>
       </excludes>
     </fileSet>
-
     <fileSet>
       <directory>src/main/distribution</directory>
       <outputDirectory>/</outputDirectory>
@@ -89,7 +85,6 @@
         <exclude>**/etc-default/*</exclude>
       </excludes>
     </fileSet>
-
     <fileSet>
       <directory>target/classes/deploy</directory>
       <outputDirectory>/deploy/</outputDirectory>
@@ -99,7 +94,6 @@
         <exclude>**/*.formatted</exclude>
       </excludes>
     </fileSet>
-
     <fileSet>
       <directory>target/classes/deploy-pmr</directory>
       <outputDirectory>/deploy/</outputDirectory>
@@ -109,7 +103,6 @@
         <exclude>**/*.formatted</exclude>
       </excludes>
     </fileSet>
-
     <fileSet>
       <directory>target/pentaho-pmr-features-repo</directory>
       <outputDirectory>/system</outputDirectory>
@@ -122,7 +115,5 @@
              from the final karaf assembly -->
       </excludes>
     </fileSet>
-
   </fileSets>
-
 </assembly>

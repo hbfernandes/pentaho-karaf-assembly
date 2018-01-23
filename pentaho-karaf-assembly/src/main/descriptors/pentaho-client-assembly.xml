@@ -14,17 +14,14 @@
   ~
   ~ Copyright 2014 - 2017 Hitachi Vantara. All rights reserved.
   -->
-
-<assembly>
-
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
   <id>client</id>
-
   <formats>
     <format>zip</format>
   </formats>
-
+  <baseDirectory>karaf</baseDirectory>
   <fileSets>
-
     <!-- Expanded Karaf Standard Distribution -->
     <fileSet>
       <directory>target/dependencies/apache-karaf-${karaf.version}</directory>
@@ -47,20 +44,17 @@
         <exclude>karaf-manual*.pdf</exclude>
       </excludes>
     </fileSet>
-
     <fileSet>
       <directory>src/main/resources/configuration-bundles</directory>
       <outputDirectory>/${configuration-bundles.target}</outputDirectory>
       <fileMode>0644</fileMode>
     </fileSet>
-
     <!-- copy the exploded configuration bundles to the configurations' deploy folder -->
     <fileSet>
       <directory>${configuration-bundles.unpacked}</directory>
       <outputDirectory>/${configuration-bundles.target}</outputDirectory>
       <fileMode>0644</fileMode>
     </fileSet>
-
     <fileSet>
       <directory>src/main/distribution</directory>
       <outputDirectory>/</outputDirectory>
@@ -84,7 +78,6 @@
         <exclude>**/*.formatted</exclude>
       </excludes>
     </fileSet>
-
     <fileSet>
       <directory>target/classes/client-extras</directory>
       <outputDirectory>/</outputDirectory>
@@ -94,8 +87,6 @@
         <exclude>**/*.formatted</exclude>
       </excludes>
     </fileSet>
-
-
     <fileSet>
       <directory>target/classes/deploy</directory>
       <outputDirectory>/deploy/</outputDirectory>
@@ -105,7 +96,6 @@
         <exclude>**/*.formatted</exclude>
       </excludes>
     </fileSet>
-
     <fileSet>
       <directory>target/classes/deploy-client</directory>
       <outputDirectory>/deploy/</outputDirectory>
@@ -115,7 +105,6 @@
         <exclude>**/*.formatted</exclude>
       </excludes>
     </fileSet>
-
     <fileSet>
       <directory>target/pentaho-client-features-repo</directory>
       <outputDirectory>/system</outputDirectory>
@@ -128,7 +117,5 @@
              from the final karaf assembly -->
       </excludes>
     </fileSet>
-
   </fileSets>
-
 </assembly>
